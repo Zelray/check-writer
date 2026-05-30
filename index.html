@@ -3,8 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Check Writer — Print-Ready Personal Checks</title>
-  <meta name="description" content="Free check-writing tool. Enter your bank details, customize the design, and generate print-ready personal checks with proper MICR formatting." />
+
+  <title>Free Check Writer — Print Personal Checks Online | No Sign-Up</title>
+  <meta name="description" content="Generate print-ready personal checks in seconds. Free online check writer with live preview, MICR E-13B magnetic ink formatting, and PDF download. No account, no data stored." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://mortgagegenius.pro/check-writer/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mortgagegenius.pro/check-writer/" />
+  <meta property="og:title" content="Free Check Writer — Print Personal Checks Online" />
+  <meta property="og:description" content="Generate print-ready personal checks in seconds. Live preview, MICR formatting, PDF download. No sign-up. No data stored. Everything stays in your browser." />
+  <meta property="og:site_name" content="Check Writer" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Free Check Writer — Print Personal Checks Online" />
+  <meta name="twitter:description" content="Generate print-ready personal checks in seconds. Live preview, MICR formatting, PDF download. No sign-up. No data stored." />
+
+  <!-- Schema: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Free Check Writer",
+    "url": "https://mortgagegenius.pro/check-writer/",
+    "description": "Free online check writer that generates print-ready personal checks with proper MICR E-13B formatting. No account required. No data stored.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Live check preview",
+      "MICR E-13B font",
+      "ABA routing number validation",
+      "Amount to words conversion",
+      "PDF download",
+      "Logo upload",
+      "No data storage"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <link rel="stylesheet" href="/styles/index.css" />
   <link rel="stylesheet" href="/styles/check.css" />
@@ -15,8 +62,12 @@
     <!-- Hero -->
     <header class="hero">
       <div class="hero-badge">Free Tool — No Sign-Up</div>
-      <h1>Check Writer</h1>
+      <h1>Free Check Writer</h1>
       <p>Generate print-ready personal checks with proper MICR formatting. Enter your details, preview in real-time, and download a PDF.</p>
+      <div class="privacy-badge">
+        <span class="privacy-dot"></span>
+        Zero data stored — no cookies, no tracking, no backend. Everything stays in your browser.
+      </div>
     </header>
 
     <!-- Main: Form + Preview -->
@@ -191,6 +242,100 @@
       </section>
 
     </main>
+
+    <!-- SEO Accordion — keyword-rich content, closed by default -->
+    <section class="seo-accordion-section" aria-label="Frequently asked questions about free check writing">
+      <h2 class="seo-accordion-heading">About This Free Check Writer</h2>
+
+      <div class="accordion">
+
+        <details class="accordion-item">
+          <summary class="accordion-summary">
+            <span>How does this free check writer work?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="accordion-body">
+            <p>Enter your 9-digit ABA routing number, account number, check number, payee name, dollar amount, and date. The live preview updates instantly so you can see exactly how your check will look before printing. When you're satisfied, click <strong>Download PDF</strong> to get a print-ready file formatted to ANSI X9.100-160 standards — the official specification for personal check dimensions and MICR line placement.</p>
+            <p>Print the PDF at <strong>100% scale (Actual Size)</strong> — never "Fit to Page." The MICR line at the bottom must land within 3/16" of the bottom edge for bank equipment to read it correctly.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-summary">
+            <span>Is my banking information stored anywhere?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="accordion-body">
+            <p>No. Absolutely nothing is stored. There is <strong>no backend server, no database, no cookies, and no analytics</strong> tracking your input. This free check writing tool runs entirely in your browser — your routing number, account number, and all other data lives only in your browser tab. Close the tab and it's gone. We have no way to see it even if we wanted to.</p>
+            <p>The PDF is generated locally on your device using JavaScript. Nothing is ever transmitted to a server.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-summary">
+            <span>How do I write a check? (Step-by-step guide)</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="accordion-body">
+            <ol>
+              <li><strong>Routing number</strong> — Find the 9-digit number at the bottom-left of any existing check, between the ⑆ transit symbols. This identifies your bank.</li>
+              <li><strong>Account number</strong> — The number following your routing number on the check's bottom line, before the ⑈ on-us symbol.</li>
+              <li><strong>Check number</strong> — Usually in the top-right corner of your checks. Pick up where your last check left off.</li>
+              <li><strong>Payee</strong> — The full name of the person or business you're paying.</li>
+              <li><strong>Amount</strong> — Enter the dollar amount numerically. The tool automatically writes it out in words (e.g., "One Thousand Two Hundred Thirty-Four and 56/100").</li>
+              <li><strong>Date</strong> — Today's date, or a future date if you're writing a post-dated check.</li>
+              <li><strong>Print</strong> — Download the PDF and print at 100% scale on blank check stock. Sign the signature line before handing it over.</li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-summary">
+            <span>What is a routing number and where do I find it?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="accordion-body">
+            <p>A routing number (officially called an ABA routing transit number) is a 9-digit code that identifies your bank or credit union. Every US financial institution has one — it's how the banking system knows which bank to contact when processing a check or ACH transfer.</p>
+            <p>You can find your routing number in three places: (1) on the bottom-left of any existing check, between the ⑆ transit symbols; (2) in your bank's mobile app or online banking portal; or (3) on your bank's website.</p>
+            <p>This tool validates routing numbers using the <strong>official ABA checksum algorithm</strong> — not just "does it have 9 digits?" Real math: <code>(3×(d1+d4+d7) + 7×(d2+d5+d8) + (d3+d6+d9)) mod 10 = 0</code>.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-summary">
+            <span>What is MICR and do I need special ink to print checks?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="accordion-body">
+            <p><strong>MICR</strong> stands for Magnetic Ink Character Recognition. The characters at the bottom of every check — those slightly alien-looking numbers and symbols — are printed in magnetic ink so automated bank sorting equipment can read them. The font used is called <strong>E-13B</strong>, and this tool embeds the open-source GnuMICR font directly into the PDF.</p>
+            <p><strong>Do you need MICR toner?</strong> Technically yes, for guaranteed machine-readable processing. Practically, most modern banks scan checks optically (like a photocopier) rather than magnetically — so a regular laser printer often works fine. That said, "often works" is not a guarantee. For larger amounts or checks going through stricter processing, MICR toner is worth the investment. MICR toner cartridges are available for most laser printers and cost about the same as a standard cartridge.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-summary">
+            <span>What paper should I use to print checks at home?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="accordion-body">
+            <p><strong>Blank check stock</strong> is the recommended paper for printing personal checks at home. Available at office supply stores and online, check stock includes security features that plain paper lacks: watermarks, micro-printing, void pantographs, and chemical sensitivity that shows tampering. These features protect you and the payee from fraud.</p>
+            <p>For small personal payments between people you trust (splitting a dinner bill with your cousin, paying a babysitter), plain laser-printed paper on a regular sheet will often work at modern banks that use image-based processing. For anything significant — rent, contractor payments, legal settlements — use proper check stock and MICR toner.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-summary">
+            <span>Can I use this as a free blank check template?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="accordion-body">
+            <p>Yes. The PDF this tool generates follows the standard <strong>personal check layout</strong> specified by ANSI X9.100-160: 6 inches wide by 2.75 inches tall, with the MICR line positioned 3/16" from the bottom edge and a 5/8" clear band at the bottom reserved for MICR characters only.</p>
+            <p>Fill in your actual routing and account numbers, print on blank check stock, sign the signature line, and it functions as a real, negotiable personal check. Just make sure you have sufficient funds — this tool generates the check, your bank does the rest.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
 
     <!-- Footer / Disclaimer -->
     <footer class="footer">
