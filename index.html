@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check Writer — Print-Ready Personal Checks</title>
+  <meta name="description" content="Free check-writing tool. Enter your bank details, customize the design, and generate print-ready personal checks with proper MICR formatting." />
+
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/check.css" />
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-badge">Free Tool — No Sign-Up</div>
+      <h1>Check Writer</h1>
+      <p>Generate print-ready personal checks with proper MICR formatting. Enter your details, preview in real-time, and download a PDF.</p>
+    </header>
+
+    <!-- Main: Form + Preview -->
+    <main class="main-content">
+
+      <!-- LEFT: Form -->
+      <section class="card" id="form-section">
+        <h2 class="card-title">
+          <span class="icon">✏️</span>
+          Check Details
+        </h2>
+
+        <form id="check-form" autocomplete="off">
+          <div class="form-grid">
+
+            <!-- Banking Info -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="routing-number">Routing Number</label>
+                <input type="text" id="routing-number" class="mono" placeholder="021000021" maxlength="9" inputmode="numeric" pattern="\d{9}" />
+                <span class="field-error-msg" id="routing-number-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="account-number">Account Number</label>
+                <input type="text" id="account-number" class="mono" placeholder="123456789" maxlength="17" inputmode="numeric" />
+                <span class="field-error-msg" id="account-number-error"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="check-number">Check Number</label>
+                <input type="text" id="check-number" class="mono" placeholder="1001" maxlength="6" inputmode="numeric" />
+                <span class="field-error-msg" id="check-number-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="check-date">Date</label>
+                <input type="date" id="check-date" />
+                <span class="field-error-msg" id="check-date-error"></span>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Payee & Amount -->
+            <div class="form-group full-width">
+              <label for="payee">Pay To The Order Of</label>
+              <input type="text" id="payee" placeholder="Jane Doe" />
+              <span class="field-error-msg" id="payee-error"></span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="amount">Amount ($)</label>
+                <input type="text" id="amount" class="mono" placeholder="1,234.56" inputmode="decimal" />
+                <span class="field-error-msg" id="amount-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="memo">Memo (optional)</label>
+                <input type="text" id="memo" placeholder="Rent — June 2026" />
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Account Holder Info -->
+            <div class="form-group full-width">
+              <label for="name-address">Name & Address (printed on check)</label>
+              <textarea id="name-address" rows="3" placeholder="John Smith&#10;123 Main Street&#10;Anytown, ST 12345"></textarea>
+            </div>
+
+            <!-- Design Tile -->
+            <div class="form-group full-width">
+              <label>Design Tile (top-left logo area)</label>
+              <div class="tile-upload-area">
+                <div class="tile-dropzone">
+                  <input type="file" id="design-tile" accept="image/*" />
+                  <img id="tile-thumbnail" alt="Design tile preview" style="display: none;" />
+                  <span class="tile-placeholder" id="tile-placeholder">Upload<br/>Image</span>
+                </div>
+                <div class="tile-info">
+                  Upload a logo or image for the top-left corner of your check.
+                  <small>Recommended: square or landscape, PNG or JPG</small>
+                  <button type="button" class="remove-tile-btn" id="remove-tile-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Font Picker -->
+            <div class="form-group full-width">
+              <label for="check-font">Check Font</label>
+              <select id="check-font">
+                <option value="inter">Inter — Modern Sans-Serif</option>
+                <option value="playfair">Playfair Display — Elegant Serif</option>
+                <option value="baskerville">Libre Baskerville — Classic Serif</option>
+                <option value="merriweather">Merriweather — Traditional</option>
+              </select>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions">
+              <button type="button" class="btn btn-primary" id="download-btn">
+                📄 Download PDF
+              </button>
+            </div>
+
+          </div>
+        </form>
+      </section>
+
+      <!-- RIGHT: Check Preview -->
+      <section class="card preview-container">
+        <h2 class="card-title">
+          <span class="icon">👁️</span>
+          Live Preview
+        </h2>
+
+        <div class="check-wrapper">
+          <div class="check" id="check-preview">
+
+            <!-- Header: Tile + Name/Address + Check Number -->
+            <div class="check-header">
+              <div class="check-identity">
+                <div class="check-design-tile">
+                  <img id="preview-design-tile" alt="" />
+                </div>
+                <div class="check-name-block">
+                  <div class="check-name" id="preview-name">Your Name</div>
+                  <div class="check-address" id="preview-address">Your Address</div>
+                </div>
+              </div>
+              <div class="check-number-display" id="preview-check-number">0001</div>
+            </div>
+
+            <!-- Date -->
+            <div class="check-date-row">
+              <span class="check-date-label">Date</span>
+              <span class="check-date-value" id="preview-date">__________</span>
+            </div>
+
+            <!-- Pay To -->
+            <div class="check-payto">
+              <span class="check-payto-label">PAY TO THE<br/>ORDER OF</span>
+              <span class="check-payto-name" id="preview-payee">________________________________________</span>
+              <span class="check-amount-box" id="preview-amount-box">****.**</span>
+            </div>
+
+            <!-- Written Amount -->
+            <div class="check-amount-line">
+              <span class="check-amount-words" id="preview-amount-words">________________________________</span>
+              <span class="check-dollars-label">DOLLARS</span>
+            </div>
+
+            <!-- Memo & Signature -->
+            <div class="check-bottom">
+              <div class="check-memo-area">
+                <span class="check-memo-label">Memo</span>
+                <span class="check-memo-value" id="preview-memo"></span>
+              </div>
+              <div class="check-signature-area">
+                <div class="check-signature-line"></div>
+                <span class="check-signature-label">Authorized Signature</span>
+              </div>
+            </div>
+
+            <!-- MICR Line (Clear Band) -->
+            <div class="check-clear-band">
+              <span class="check-micr" id="preview-micr">⑆000000000⑆  000000000⑈  0001</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer / Disclaimer -->
+    <footer class="footer">
+      <div class="disclaimer">
+        <strong>⚠️ Important Notice</strong>
+        <ul>
+          <li>Print on blank check stock with security features (watermarks, micro-printing)</li>
+          <li>Use a printer with MICR toner for guaranteed bank acceptance</li>
+          <li>Print at 100% scale / "Actual Size" — never "Fit to Page"</li>
+          <li>Verify MICR line alignment with your bank's requirements</li>
+          <li>This tool is provided as-is; creators are not responsible for rejected checks</li>
+        </ul>
+      </div>
+    </footer>
+
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
