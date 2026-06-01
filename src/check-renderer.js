@@ -88,14 +88,14 @@ export function generateCheckPDF(data) {
   // --- Design tile (top-left) ---
   if (data.designTileUrl) {
     try {
-      doc.addImage(data.designTileUrl, 'PNG', 0.2, 0.15, 0.85, 0.65);
+      doc.addImage(data.designTileUrl, 'PNG', 0.2, 0.15, 0.65, 0.65);
     } catch (e) {
       console.warn('Could not embed design tile in PDF:', e);
     }
   }
 
   // --- Account holder name & address (top-left, beside tile if present) ---
-  const nameX = data.designTileUrl ? 1.2 : 0.2;
+  const nameX = data.designTileUrl ? 1.0 : 0.2;
   doc.setFontSize(9);
   doc.setFont(pdfFont, 'bold');
   const nameLines = (data.nameAddress || '').split('\n');

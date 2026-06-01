@@ -72,19 +72,16 @@ function handleDesignTileUpload(e) {
   reader.onload = (evt) => {
     const img = new Image();
     img.onload = () => {
-      // Resize to fit tile area (max 200x150 px for quality)
+      // Center-crop to a square so preview and PDF render identically (no stretch)
+      const SIZE = 200;
+      const side = Math.min(img.width, img.height);
+      const sx = (img.width - side) / 2;
+      const sy = (img.height - side) / 2;
       const canvas = document.createElement('canvas');
-      const maxW = 200, maxH = 150;
-      let w = img.width, h = img.height;
-      if (w > maxW || h > maxH) {
-        const ratio = Math.min(maxW / w, maxH / h);
-        w *= ratio;
-        h *= ratio;
-      }
-      canvas.width = w;
-      canvas.height = h;
+      canvas.width = SIZE;
+      canvas.height = SIZE;
       const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0, w, h);
+      ctx.drawImage(img, sx, sy, side, side, 0, 0, SIZE, SIZE);
       window.__designTileUrl = canvas.toDataURL('image/png');
 
       // Show thumbnail preview

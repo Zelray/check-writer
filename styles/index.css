@@ -342,7 +342,7 @@ textarea {
 
 .tile-dropzone {
   width: 100px;
-  height: 75px;
+  height: 100px;
   border: 2px dashed var(--border-input);
   border-radius: var(--radius-sm);
   display: flex;
