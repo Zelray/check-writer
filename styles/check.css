@@ -114,6 +114,7 @@
 .check-address {
   font-size: 0.5rem;
   color: #555;
+  white-space: pre-line;
 }
 
 .check-number-display {
